@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 🤍</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Blurred background image */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(14px);
+      transform: scale(1.15);
+      z-index: -1;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 32px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      max-width: 360px;
+    }
+
+    /* Small visible image */
+    .photo {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #adb5bd;
+      position: absolute;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-name {
+      animation: fadeIn 2.2s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <!-- Visible image -->
+    <img src="background.jpg" alt="Us" class="photo">
+
+    <p><em>From an idiot to the girl who thinks I don’t love her — but I love you. Endlessly.</em></p>
+    <h1>Will you be my Valentine? 🤍❤️</h1>
+    <button id="yes" onclick="yesClick()">YES ✨</button>
+    <button id="no" onmouseover="moveNo()">NO</button>
+  </div>
+
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      noBtn.style.left = Math.random() * 80 + "vw";
+      noBtn.style.top = Math.random() * 80 + "vh";
+    }
+
+    function yesClick() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          text-align:center;
+          padding:20px;
+          background: rgba(255,255,255,0.2);
+        ">
+          <div>
+            <h1 style="color:#ff4d6d;font-size:38px;line-height:1.4;">
+              I love you 
+              <span class="fade-name" style="color:#ff1e56;">DURVAA</span> ❤️<br><br>
+              Endlessly 🤍✨
+            </h1>
+            <div style="font-size:48px;margin-top:10px;">
+              🐼
+            </div>
+          </div>
+        </div>`;
+    }
+  </script>
+
+</body>
+</html>
